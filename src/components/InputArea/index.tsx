@@ -12,8 +12,7 @@ export const InputArea = ({onAdd}:Props) =>{
     const [dateAdd,setDateAdd] = useState('')
     const [index,setIndex] = useState('rent')
 
-    
-    
+
 
     const handleAddEvent = () => {
         if(title === ''){
@@ -32,7 +31,7 @@ export const InputArea = ({onAdd}:Props) =>{
         onAdd(newItem)
     }
     
-
+console.log(dateAdd)
     return(
         <C.Container>
             <input type="date" onChange={e => setDateAdd(e.target.value)}/>
