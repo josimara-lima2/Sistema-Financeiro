@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const AreaInputs = styled.div`
   display:flex;
-  flex:2;
+  
 `
 
 export const ButtonAdd = styled.button`
@@ -21,7 +21,7 @@ export const ButtonAdd = styled.button`
   color: #000;
   width: 100px;
   height: 35px;
-  margin-top:55px;
+  margin-top:30px;
   font-size: 18px;
   border-color: #63b8ffcc;
   flex:2;

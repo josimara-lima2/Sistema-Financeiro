@@ -26,11 +26,9 @@ export const InputArea = ({ onAdd }: Props) => {
     } else {
       if (title === "") {
         alert("Título inválido");
-      }
-      if (valueInput === 0) {
+      }else if (valueInput === 0) {
         alert("Valor inválido");
-      }
-      if (dateAdd === "") {
+      }else if (dateAdd === "") {
         alert("Data inválida");
       }
     }
