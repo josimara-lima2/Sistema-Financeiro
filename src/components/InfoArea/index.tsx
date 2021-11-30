@@ -26,7 +26,7 @@ export const InfoArea = ({
     currentDate.setMonth(currentDate.getMonth() + 1);
     onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`);
   };
-
+  let balanco = (income - expense).toFixed(2);
   return (
     <C.Container>
       <C.MonthArea>
@@ -40,7 +40,7 @@ export const InfoArea = ({
         <ResumeItem
           color={income - expense < 0 ? "red" : "green"}
           title="Balanco"
-          value={income - expense}
+          value={Number(balanco)}
         />
       </C.ResumeArea>
     </C.Container>
