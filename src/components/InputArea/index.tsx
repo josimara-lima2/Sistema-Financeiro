@@ -3,17 +3,19 @@ import { Item } from "../../types/Item";
 import { useState } from "react";
 import { dateInput } from "../../helpers/dateFilter";
 import { categories } from "../../data/categories";
+import {InputItem,InputItemNumber} from '../InputItem/index'
+import { SelectItem } from "../SelectItem";
 type Props = {
   onAdd: (item: Item) => void;
 };
 export const InputArea = ({ onAdd }: Props) => {
   const [title, setTitle] = useState("");
-  const [valueInput, SetValueInput] = useState<number>(0);
-  const [dateAdd, setDateAdd] = useState("");
+  const [valueInput, setValueInput] = useState<number>(0);
+  const [dateAdd,setAdd] = useState('')
   const [categoryAdd, setCategoryAdd] = useState("rent");
 
   const handleAddEvent = () => {
-    if (title !== "" && valueInput !== 0 && dateAdd !== "") {
+    if (title !== "" && valueInput !== 0 && dateAdd !== "" && categoryAdd !== "") {
       let newItem: Item = {
         date: dateInput(dateAdd),
         category: categoryAdd,
@@ -34,37 +36,15 @@ export const InputArea = ({ onAdd }: Props) => {
     }
   };
 
-  console.log(dateAdd);
+  console.log(title);
   return (
     <C.Container>
-      <C.Label>
-        Data<br></br>
-        <C.Input type="date" onChange={(e) => setDateAdd(e.target.value)} />
-      </C.Label>
-
-      <C.Label>
-        Categoria
-        <br />
-        <C.Select name="op" onChange={(e) => setCategoryAdd(e.target.value)}>
-          <C.Option value="rent">Aluguel</C.Option>
-          <C.Option value="food">Alimentação</C.Option>
-          <C.Option value="salary">Salario</C.Option>
-        </C.Select>
-      </C.Label>
-
-      <C.Label>
-        Título
-        <br />
-        <C.Input type="text" onChange={(e) => setTitle(e.target.value)} />
-      </C.Label>
-      <C.Label>
-        Valor
-        <br />
-        <C.Input
-          type="number"
-          onChange={(e) => SetValueInput(Number(e.target.value))}
-        />
-      </C.Label>
+      <C.AreaInputs>
+      <InputItem title='Data' type='date' setString={setAdd} />
+      <SelectItem title="Categoria" setCategory={setCategoryAdd}/>
+      <InputItem title="Título" type="text" setString={setTitle}/>
+      <InputItemNumber title="Valor" type="number" setNumber={setValueInput}/> 
+      </C.AreaInputs>
       <C.ButtonAdd onClick={handleAddEvent}>Adicionar</C.ButtonAdd>
     </C.Container>
   );
